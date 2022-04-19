@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#436580"
-        android:text="@string/hello_first_fragment"
+        android:text="@string/title"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#9EB3BD"
@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Group Testing \nRecovery Application" />
+        />
+
 
     <Button
 
@@ -32,8 +33,7 @@
         android:fontFamily="sans-serif"
         android:text="@string/next"
         android:textAllCaps="false"
-        android:textColor="#436580
-"
+        android:textColor="#436580"
         android:textSize="24sp"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
