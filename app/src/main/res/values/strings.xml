@@ -10,5 +10,9 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title">Group Testing \nRecovery Application</string>
-
+    <array name="PoolingScheme">
+        <item>Choose Pooling Scheme</item>
+        <item>COMP3</item>
+        <item>COMP4</item>
+    </array>
 </resources>
