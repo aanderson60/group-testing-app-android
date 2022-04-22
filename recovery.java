@@ -104,7 +104,7 @@ public class recovery {
             colTests[a] = 0;
             diagTests[a] = 0;
         }
-        // TODO : Case for R10/C10/D10
+        
         for (int i=0; i<spltPositives.length; i++) {
             if (spltPositives[i].substring(0,1).equals("C")) { // Column test
                 colTests[(Integer.parseInt(spltPositives[i].substring(1,spltPositives[i].length())))-1] = 1;
