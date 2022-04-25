@@ -33,8 +33,11 @@
     <TextView
         android:id="@+id/Output"
         android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="236dp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/button_second"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
