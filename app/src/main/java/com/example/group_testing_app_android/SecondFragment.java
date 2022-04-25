@@ -44,11 +44,19 @@ public class SecondFragment extends Fragment {
             public void onClick(View view) {
                 EditText GetData = binding.textInputEditText;
                 String Data = GetData.getText().toString();
-                ArrayList<Integer> Defectives = decodeInput(Data, 100);
-                Log.d("GetOuput", )
-                String toWrite = "Possible Defectives: \n";
-                for (int i = 0; i < Defectives.size(); i++) {
-                    toWrite = toWrite + Integer.toString(Defectives.get(i)) + " ";
+                String toWrite = "";
+                try {
+                    ArrayList<Integer> Defectives = decodeInput(Data, 10);
+                    toWrite = "Possible Defectives: \n";
+                    for (int i = 0; i < Defectives.size(); i++) {
+                        toWrite = toWrite + Integer.toString(Defectives.get(i)) + " ";
+                    }
+                    // Case for no defectives
+                    if (toWrite.equals("Possible Defectives: \n")) {
+                        toWrite += "None";
+                    }
+                } catch(RuntimeException r) {
+                    toWrite = r.getMessage();
                 }
                 TextView toDo = binding.Output;
                 toDo.setText(toWrite);
@@ -145,7 +153,7 @@ public class SecondFragment extends Fragment {
     // ----------------------------------------------------------------------------------------------------------
     public static ArrayList<Integer> decodeInput(String positives, int n) {
         // Split positive tests into items
-        String[] spltPositives = positives.split(" ");
+        String[] spltPositives = positives.toUpperCase().split(" ");
         int[] rowTests = new int[n];
         int[] colTests = new int[n];
         int[] diagTests = new int[n];
@@ -158,11 +166,15 @@ public class SecondFragment extends Fragment {
         }
 
         for (int i=0; i<spltPositives.length; i++) {
-            if (spltPositives[i].substring(0,1).equals("C")) { // Column test
+            // Input cleansing for if test number greater than n
+            if ((Integer.parseInt(spltPositives[i].substring(1,spltPositives[i].length()))) > n) {
+                throw new java.lang.RuntimeException("Invalid test input: test number greater than n.");
+            }
+            if (spltPositives[i].charAt(0) == 'C') { // Column test
                 colTests[(Integer.parseInt(spltPositives[i].substring(1,spltPositives[i].length())))-1] = 1;
-            } else if (spltPositives[i].substring(0,1).equals("D")) { // Diag test
+            } else if (spltPositives[i].charAt(0) == 'D') { // Diag test
                 diagTests[(Integer.parseInt(spltPositives[i].substring(1,spltPositives[i].length())))-1] = 1;
-            } else if (spltPositives[i].substring(0,1).equals("R")) { // Row test
+            } else if (spltPositives[i].charAt(0) == 'R') { // Row test
                 rowTests[(Integer.parseInt(spltPositives[i].substring(1,spltPositives[i].length())))-1] = 1;
             } else {
                 // Invalid input
