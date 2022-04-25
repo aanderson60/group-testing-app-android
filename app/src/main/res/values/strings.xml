@@ -10,6 +10,8 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title">Group Testing \nRecovery Application</string>
+    <string name="instruction">Select pooling scheme \n and \n enter positive pools delimited by a space</string>
+    <string name="textinput">Enter the positive pools here</string>
     <array name="PoolingScheme">
         <item>Choose Pooling Scheme</item>
         <item>COMP3</item>
